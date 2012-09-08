@@ -1,7 +1,9 @@
 # just enough to use the checkout dir as a cache area for chef-solo
-current_dir = File.realdirpath(File.dirname(__FILE__))
+require 'pathname'
+current_dir = Pathname.new(File.dirname(__FILE__))
+current_dir = current_dir.parent.realpath # we're in config directory, so get parent
 puts current_dir.inspect
-cookbook_path            "#{current_dir}/../.."
+cookbook_path            "#{current_dir}/../.." 
 
 # log_level                :info
 # log_location             STDOUT
