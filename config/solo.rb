@@ -10,7 +10,7 @@ cookbook_path            "#{current_dir}/../.."
 # cache_type               'BasicFile'
 # cache_options            :path =>  "#{ENV['HOME']}/.chef/checksums"
 
-#file_cache_path "#{current_dir}/../cache"
+file_cache_path "#{current_dir}/../.."
 #role_path "#{current_dir}/../roles"
 # data_bag_path "#{current_dir}/../profiles"
 
