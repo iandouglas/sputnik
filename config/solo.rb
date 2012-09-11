@@ -1,7 +1,7 @@
 # just enough to use the checkout dir as a cache area for chef-solo
 require 'pathname'
 current_dir = Pathname.new(File.dirname(__FILE__))
-current_dir = current_dir.parent.realpath # we're in config directory, so get parent
+current_dir = current_dir.realpath # config directory
 puts current_dir.inspect
 cookbook_path            "#{current_dir}/../.." 
 
@@ -10,7 +10,7 @@ cookbook_path            "#{current_dir}/../.."
 # cache_type               'BasicFile'
 # cache_options            :path =>  "#{ENV['HOME']}/.chef/checksums"
 
-file_cache_path "#{current_dir}/../.."
+file_cache_path "#{current_dir}/../../.."
 #role_path "#{current_dir}/../roles"
 # data_bag_path "#{current_dir}/../profiles"
 
