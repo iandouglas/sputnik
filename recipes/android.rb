@@ -7,3 +7,13 @@ execute 'tar xvfz /tmp/android-sdk_r20.0.3-linux.tgz' do
   cwd '/usr/local'
   not_if {::File.exists? '/usr/local/android-sdk-linux'}
 end
+
+execute 'sudo apt-get install default-jdk' do
+  not_if {::File.exists? '/usr/bin/java'}
+end
+
+execute 'tools/android update sdk --no-ui' do
+  cwd '/usr/local/android-sdk-linux'
+end
+
+
